@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    tools:context="foodbazar.webmyne.com.foodbaazar.ui.fragments.OrdersFragment">
+
+    <TextView
+        android:fontFamily="sans-serif-condensed"
+        android:id="@+id/txtNoOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="No Ordered Item Found For This User"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="CARD_DIVIDER_HEIGHT">8dp</dimen>
+    <dimen name="splash_logo_size">120dp</dimen>
+
+    <dimen name="veg_icon">16dp</dimen>
+    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="EXPANDABLE_MARGIN_END">64dp</dimen>
+    <dimen name="EXPANDABLE_MARGIN_START">24dp</dimen>
+    <dimen name="fab_margin">46dp</dimen>
+
+    <dimen name="button_height">38dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+
+    <dimen name="BADGE_TEXT_SIZE">6dp</dimen>
+
+    <dimen name="home_pick_up_icon_size">22dp</dimen>
+
+</resources>

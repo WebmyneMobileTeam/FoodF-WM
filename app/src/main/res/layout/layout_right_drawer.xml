@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e0e0e0"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="8dp"
+        android:text="Sort"
+        android:textColor="#db000000"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/grpSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RadioButton
+            android:id="@+id/radioAlpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="8dp"
+            android:text="Alphabatically" />
+
+        <RadioButton
+            android:id="@+id/radioVeg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="8dp"
+            android:text="Vegetarian" />
+
+        <RadioButton
+            android:id="@+id/radioNonveg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="8dp"
+            android:text="Non Vegetarian" />
+
+        <RadioButton
+            android:id="@+id/radioHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="8dp"
+            android:text="Home Delivery" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e0e0e0"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="8dp"
+        android:text="Cuisine"
+        android:textColor="#db000000"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/listCuisine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>

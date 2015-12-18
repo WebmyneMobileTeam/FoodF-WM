@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:id="@+id/leftLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.alexzh.circleimageview.CircleImageView
+                android:id="@+id/iconHotel"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_margin="4dp"
+                android:src="@drawable/bg_image_small" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:id="@+id/imgVeg"
+                    android:layout_width="@dimen/veg_icon"
+                    android:layout_height="@dimen/veg_icon"
+                    android:layout_marginRight="4dp"
+                    android:src="@drawable/veg_revised"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imgNonveg"
+                    android:layout_width="@dimen/veg_icon"
+                    android:layout_height="@dimen/veg_icon"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/nonveg_revised"></ImageView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/leftLayout"
+            android:orientation="vertical"
+            android:paddingLeft="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/imgHome"
+                    android:layout_width="@dimen/home_pick_up_icon_size"
+                    android:layout_height="@dimen/home_pick_up_icon_size"
+                    android:background="@drawable/round_circle_bg"
+                    android:src="@drawable/ic_home"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imgPick"
+                    android:layout_width="@dimen/home_pick_up_icon_size"
+                    android:layout_height="@dimen/home_pick_up_icon_size"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/round_circle_bg"
+                    android:src="@drawable/ic_pick"></ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtCuisine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="txtCuisine"
+                    android:textColor="@color/secondary_text" />
+
+                <TextView
+                    android:id="@+id/txtRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="2dp"
+                    android:drawableRight="@drawable/ic_star_rate"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="txtRating"
+                    android:textColor="@color/secondary_text"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

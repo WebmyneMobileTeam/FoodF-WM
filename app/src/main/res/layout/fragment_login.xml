@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="foodbazar.webmyne.com.foodbaazar.ui.fragments.LoginFragment">
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="16dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="16dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <TextView
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/txtForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="Forget Password?" />
+
+        <Button
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/button_text_size"
+            android:textAllCaps="false"
+            android:background="@color/button_bg"
+            android:padding="8dp"
+            android:text="Login" />
+
+        <TextView
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/txtSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="New User? Sign Up" />
+    </LinearLayout>
+
+    <include
+        layout="@layout/profile_view"></include>
+
+</RelativeLayout>

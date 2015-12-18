@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="foodbazar.webmyne.com.foodbaazar">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".helpers.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <uses-sdk tools:node="replace" />
+
+        <activity
+            android:name=".ui.activity.LauncherScreen"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.HomeScreen"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.activity.SignUpActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.UpdateProfileActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.HotelDetailsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.ItemDetailsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.CartActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.ConfirmOrderActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.OrderDetailsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity android:name=".ui.activity.StreetFoodActivity" />
+        <activity android:name=".ui.activity.ReviewsActivity" />
+        <activity android:name=".ui.UploadImageActivity"></activity>
+    </application>
+
+</manifest>

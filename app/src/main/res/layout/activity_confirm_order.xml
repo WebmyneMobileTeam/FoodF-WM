@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="foodbazar.webmyne.com.foodbaazar.ui.activity.ConfirmOrderActivity">
+
+    <include layout="@layout/app_bar"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/loginLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="200dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:background="@color/button_bg"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/button_text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.4"
+                        android:background="@color/half_black" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="OR" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.4"
+                        android:background="@color/half_black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:id="@+id/cartItemLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp">
+
+                    <EditText
+                        android:id="@+id/edtFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/edtLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:hint="Last Name"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/edtMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:hint="Mobile Number"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:hint="Email-id"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/edtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start|top"
+                        android:hint="Address"
+                        android:inputType="textMultiLine"
+                        android:minLines="4" />
+
+                    <EditText
+                        android:id="@+id/edtPincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:hint="Pincode"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:singleLine="true" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioHome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Home Delivery" />
+
+                        <RadioButton
+                            android:id="@+id/radioPick"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Pick Up" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/txtCharge"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:text="- Delivery charges:\nUpto 3 Kms - Rs. 20 and Beyond 3 Kms - Rs. 40"
+                        android:textColor="@color/choco_color" />
+
+                    <CheckBox
+                        android:id="@+id/cbPreOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="I want this as a Pre - Order" />
+
+                    <LinearLayout
+                        android:id="@+id/dateTimeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/edtDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:hint="Select Date" />
+
+                        <EditText
+                            android:id="@+id/edtTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:hint="Select Time" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/footerLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/button_height"
+                            android:background="@color/button_bg"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Place Your Order"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/button_text_size" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:text="- By placing this order, you are agree with our terms and conditions."
+                        android:textColor="@color/choco_color" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

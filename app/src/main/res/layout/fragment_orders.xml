@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    tools:context="foodbazar.webmyne.com.foodbaazar.ui.fragments.OrdersFragment">
+
+    <TextView
+        android:id="@+id/txtNoOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="No Ordered Item Found For This User"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/segmented2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:checkedButton="@+id/tabPending"
+        android:orientation="horizontal"
+        segmentedgroup:border_width="2dp"
+        segmentedgroup:corner_radius="4dp">
+
+        <RadioButton
+            android:id="@+id/tabPending"
+            style="@style/RadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Pending\nOrders"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/tabCompleted"
+            style="@style/RadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Paid &amp; Cancelled\nOrders"
+            android:textSize="16sp" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/segmented2"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:focusable="true"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search order by Restaurant Name" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchView"
+        android:layout_marginTop="4dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.webmyne.kidscrown.ui.MyDrawerActivity">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_location"
+            android:checked="true"
+            android:icon="@drawable/ic_maps_pin_drop"
+            android:title="Change Location" />
+
+        <item
+            android:id="@+id/drawer_hotels"
+            android:icon="@drawable/ic_maps_local_restaurant"
+            android:title="Restaurants" />
+
+        <item
+            android:id="@+id/drawer_orders"
+            android:icon="@drawable/ic_action_assignment"
+            android:title="Orders" />
+
+        <item
+            android:id="@+id/drawer_accounts"
+            android:icon="@drawable/ic_social_person"
+            android:title="Account" />
+
+        <item
+            android:id="@+id/drawer_aboutus"
+            android:icon="@drawable/ic_action_info"
+            android:title="About Us" />
+
+        <item
+            android:id="@+id/drawer_contactus"
+            android:icon="@drawable/ic_action_contact"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/drawer_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+
+    </group>
+</menu>

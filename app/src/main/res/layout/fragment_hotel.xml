@@ -1,0 +1,44 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/content_bg"
+        android:baselineAligned="false"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Loading Restaurants..."
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listHotels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"></android.support.v7.widget.RecyclerView>
+
+    </FrameLayout>
+
+
+    <!-- Right drawer -->
+    <RelativeLayout
+        android:id="@+id/right_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="#ddffffff"
+        android:choiceMode="singleChoice">
+
+        <include layout="@layout/layout_right_drawer"></include>
+
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>
