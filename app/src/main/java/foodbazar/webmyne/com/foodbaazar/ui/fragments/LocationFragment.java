@@ -88,16 +88,24 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         findRestaurant = (LinearLayout) parentView.findViewById(R.id.findRestaurant);
         findRestaurant.setOnClickListener(this);
 
+        HomeScreen homeScreen = ((HomeScreen) getActivity());
+        homeScreen.setTitle("Vadodara");
+        homeScreen.setSubTitle("");
+        fetchLocations();
+
         return parentView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        HomeScreen homeScreen = ((HomeScreen) getActivity());
-        homeScreen.setTitle("Vadodara");
-        homeScreen.setSubTitle("");
-        fetchLocations();
+        if (!Functions.isConnecting(getActivity())) {
+            if (dialogLoading.isShowing()) {
+                dialogLoading.dismiss();
+            }
+            getActivity().finish();
+        }
+
         String receivedArea = applicationPrefs.selectedAreaName().get();
 
         if (receivedArea == null || receivedArea.isEmpty()) {
@@ -106,14 +114,6 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
             selectedPosition = Integer.parseInt(applicationPrefs.selectedAreaId().get());
             edtArea.setText(receivedArea);
         }
-
-        if (!Functions.isConnecting(getActivity())) {
-            if (dialogLoading.isShowing()) {
-                dialogLoading.dismiss();
-            }
-            getActivity().finish();
-        }
-
     }
 
     private void fetchLocations() {
@@ -130,25 +130,31 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onRequestSuccess(Object o) {
                         dialogLoading.dismiss();
-                        try {
 
+                        try {
                             cityObject = (CityObject) o;
 
-                            areas = cityObject.cityArrayList.get(0).areaListArrayList;
-                            CustomerAdapter customerAdapter = new CustomerAdapter(getActivity(), R.layout.auto_item, areas);
-                            edtArea.setAdapter(customerAdapter);
-                            edtArea.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                                    imm.hideSoftInputFromWindow(edtArea.getWindowToken(), 0);
+                            if (cityObject == null) {
+                                Functions.snack(parentView, "Server time out");
 
-                                    applicationPrefs.selectedAreaName().put(areas.get(position).AreaName);
-                                    applicationPrefs.selectedAreaId().put("" + areas.get(position).AreaId);
-                                    applicationPrefs.selectedAreaPosition().put(position);
-                                    selectedPosition = position;
-                                }
-                            });
+                            } else {
+                                areas = cityObject.cityArrayList.get(0).areaListArrayList;
+                                CustomerAdapter customerAdapter = new CustomerAdapter(getActivity(), R.layout.auto_item, areas);
+                                edtArea.setAdapter(customerAdapter);
+                                edtArea.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                                        imm.hideSoftInputFromWindow(edtArea.getWindowToken(), 0);
+
+                                        applicationPrefs.selectedAreaName().put(areas.get(position).AreaName);
+                                        applicationPrefs.selectedAreaId().put("" + areas.get(position).AreaId);
+                                        applicationPrefs.selectedAreaPosition().put(position);
+                                        selectedPosition = position;
+                                    }
+                                });
+                            }
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

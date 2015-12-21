@@ -37,15 +37,15 @@ public class MyApplication extends Application {
         super.onCreate();
         sInstance = this;
 
-       /*IceNetConfig config = new IceNetConfig.Builder()
+       IceNetConfig config = new IceNetConfig.Builder()
                 .setBaseUrl("http://ws.foodfad.in/")
                 .setContext(getApplicationContext())
-                .build();*/
+                .build();
 
-        IceNetConfig config = new IceNetConfig.Builder()
+     /*   IceNetConfig config = new IceNetConfig.Builder()
                 .setBaseUrl("http://ws-srv-net.in.webmyne.com/applications/FoodBaazarWS_v2/")
                 .setContext(getApplicationContext())
-                .build();
+                .build();*/
 
         IceNet.init(config);
 

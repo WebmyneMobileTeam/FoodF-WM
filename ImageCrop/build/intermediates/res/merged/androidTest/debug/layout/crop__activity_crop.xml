@@ -16,4 +16,4 @@
         android:background="@drawable/crop__texture"
         android:layout_below="@id/done_cancel_bar" />
 
-</RelativeLayout><!-- From: file:/D:/Projects/FoodFed/Backup/8-12-2015/FF-WM/ImageCrop/src/main/res/layout/crop__activity_crop.xml --><!-- From: file:/D:/Projects/FoodFed/Backup/8-12-2015/FF-WM/ImageCrop/build/intermediates/bundles/debug/res/layout/crop__activity_crop.xml -->
+</RelativeLayout><!-- From: file:/D:/Current_Projects/FoodF-WM/ImageCrop/src/main/res/layout/crop__activity_crop.xml --><!-- From: file:/D:/Current_Projects/FoodF-WM/ImageCrop/build/intermediates/bundles/debug/res/layout/crop__activity_crop.xml -->

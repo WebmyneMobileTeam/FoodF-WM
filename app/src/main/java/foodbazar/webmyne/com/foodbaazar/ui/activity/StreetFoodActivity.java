@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -41,6 +43,8 @@ public class StreetFoodActivity extends AppCompatActivity {
     String strCuisine;
     private ImageView imgCartMenu;
     ToolHelper helper;
+    RelativeLayout linearMain;
+    TextView txtLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +122,26 @@ public class StreetFoodActivity extends AppCompatActivity {
 
                             gridView1.setAdapter(new CustomAdapter(StreetFoodActivity.this, galleryPojos));
                             gridView1.setVisibility(View.VISIBLE);
+
+                            gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                    Intent i = new Intent(StreetFoodActivity.this, HotelDetailsActivity.class);
+                                    i.putExtra("hotelId", 1);
+                                    i.putExtra("hotelName", "Street Food");
+                                    i.putExtra("hotelCuisine", strCuisine);
+                                    i.putExtra("IsDelivery", true);
+                                    i.putExtra("IsPickUp", false);
+                                    i.putExtra("cuisineID", galleryPojos.get(position).GalleryName);
+                                    i.putExtra("ID", galleryPojos.get(position).CuisineID);
+
+                                    startActivity(i);
+                                }
+                            });
+
                             pd.dismiss();
+                            txtLoading.setVisibility(View.VISIBLE);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -134,6 +157,8 @@ public class StreetFoodActivity extends AppCompatActivity {
     }
 
     private void findViewById() {
+        txtLoading = (TextView) findViewById(R.id.txtLoading);
+        linearMain = (RelativeLayout) findViewById(R.id.linearMain);
         gridView1 = (GridView) findViewById(R.id.gridView1);
     }
 
@@ -168,43 +193,36 @@ public class StreetFoodActivity extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = new ViewHolder();
-            View rowView;
 
-            rowView = inflater.inflate(R.layout.item_street_food, null);
-            holder.txtStreetFood = (TextView) rowView.findViewById(R.id.txtStreetFood);
-            holder.imgStreetFood = (ImageView) rowView.findViewById(R.id.imgStreetFood);
+            View vi = convertView;
+            ViewHolder holder;
+
+            if (inflater == null) {
+                inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            }
+
+            if (convertView == null) {
+                vi = inflater.inflate(R.layout.item_street_food, null);
+                holder = new ViewHolder();
+
+                holder.txtStreetFood = (TextView) vi.findViewById(R.id.txtStreetFood);
+                holder.imgStreetFood = (ImageView) vi.findViewById(R.id.imgStreetFood);
+                vi.setTag(holder);
+
+            } else {
+                holder = (ViewHolder) vi.getTag();
+            }
 
             holder.txtStreetFood.setText(galleryPojos.get(position).GalleryName);
-
-            //Log.e("Image", AppConstants.IMAGE_PREFIX + galleryPojos.get(position).ImagePath + galleryPojos.get(position).Image);
 
             if (!galleryPojos.get(position).Image.equals("")) {
                 Glide.with(context).load(AppConstants.IMAGE_PREFIX + galleryPojos.get(position).ImagePath + galleryPojos.get(position).Image).thumbnail(0.10f).into(holder.imgStreetFood);
             } else {
                 Glide.with(context).load(R.drawable.bg_image_small).into(holder.imgStreetFood);
             }
+            txtLoading.setVisibility(View.GONE);
 
-            rowView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-
-                    Intent i = new Intent(context, HotelDetailsActivity.class);
-                    i.putExtra("hotelId", 1);
-                    i.putExtra("hotelName", "Street Food");
-                    i.putExtra("hotelCuisine", strCuisine);
-                    i.putExtra("IsDelivery", true);
-                    i.putExtra("IsPickUp", false);
-                    i.putExtra("cuisineID", galleryPojos.get(position).GalleryName);
-                    i.putExtra("ID", galleryPojos.get(position).CuisineID);
-
-                    context.startActivity(i);
-                }
-            });
-
-            return rowView;
+            return vi;
         }
 
         private class ViewHolder {

@@ -7,94 +7,99 @@
 
     <include layout="@layout/app_bar"></include>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
 
-        <EditText
-            android:id="@+id/edtFirstName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
-            android:drawableLeft="@drawable/ic_account"
-            android:drawablePadding="16dp"
-            android:hint="First Name"
-            android:inputType="text"
-            android:singleLine="true" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <EditText
-            android:id="@+id/edtLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
-            android:drawableLeft="@drawable/ic_account"
-            android:drawablePadding="16dp"
-            android:hint="Last Name"
-            android:inputType="text"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edtFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:drawableLeft="@drawable/ic_account"
+                android:drawablePadding="16dp"
+                android:hint="First Name"
+                android:inputType="text"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/edtMobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableLeft="@drawable/ic_mobile"
-            android:drawablePadding="16dp"
-            android:hint="Mobile Number"
-            android:inputType="number"
-            android:maxLength="10"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edtLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:drawableLeft="@drawable/ic_account"
+                android:drawablePadding="16dp"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/edtEmailId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableLeft="@drawable/ic_email"
-            android:drawablePadding="16dp"
-            android:hint="Email Id"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_mobile"
+                android:drawablePadding="16dp"
+                android:hint="Mobile Number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableLeft="@drawable/ic_password"
-            android:drawablePadding="16dp"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edtEmailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="16dp"
+                android:hint="Email Id"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/edtConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableLeft="@drawable/ic_password"
-            android:drawablePadding="16dp"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="16dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:singleLine="true" />
 
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@color/button_bg"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="8dp"
-            android:text="Sign Up"
-            android:textAllCaps="false"
-            android:textSize="@dimen/button_text_size" />
+            <EditText
+                android:id="@+id/edtConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="16dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:singleLine="true" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@color/button_bg"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="8dp"
+                android:text="Sign Up"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_text_size" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

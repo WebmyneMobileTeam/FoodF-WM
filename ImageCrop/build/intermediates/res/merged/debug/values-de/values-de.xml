@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <!-- From: file:/D:/Projects/FoodFed/Backup/8-12-2015/FF-WM/ImageCrop/src/main/res/values-de/strings.xml -->
+    <!-- From: file:/D:/Current_Projects/FoodF-WM/ImageCrop/src/main/res/values-de/strings.xml -->
     <eat-comment/>
     <string name="crop__cancel" ns1:ignore="ButtonCase">abbrechen</string>
     <string name="crop__done">übernehmen</string>

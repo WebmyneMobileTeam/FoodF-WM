@@ -3,15 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 22
     buildToolsVersion "23.0.0"
-
     defaultConfig {
-        applicationId "foodbazar.webmyne.com.foodbaazar"
+        applicationId 'com.webmyne.foodfad'
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
-
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
@@ -22,6 +20,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 

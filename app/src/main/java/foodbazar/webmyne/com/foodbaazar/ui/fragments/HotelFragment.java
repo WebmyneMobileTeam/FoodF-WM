@@ -30,6 +30,7 @@ import foodbazar.webmyne.com.foodbaazar.R;
 import foodbazar.webmyne.com.foodbaazar.helpers.AppConstants;
 import foodbazar.webmyne.com.foodbaazar.helpers.ApplicationPrefs;
 import foodbazar.webmyne.com.foodbaazar.helpers.ComplexPreferences;
+import foodbazar.webmyne.com.foodbaazar.helpers.Functions;
 import foodbazar.webmyne.com.foodbaazar.icenet.IceNet;
 import foodbazar.webmyne.com.foodbaazar.icenet.RequestCallback;
 import foodbazar.webmyne.com.foodbaazar.icenet.RequestError;
@@ -182,6 +183,7 @@ public class HotelFragment extends Fragment {
                 .fromJsonObject()
                 .mappingInto(ResponseHotel.class)
                 .execute("RequestLocations", new RequestCallback() {
+
                     @Override
                     public void onRequestSuccess(Object o) {
                         pd.dismiss();
@@ -189,27 +191,33 @@ public class HotelFragment extends Fragment {
                         try {
                             responseHotel = (ResponseHotel) o;
 
-                            if (responseHotel.responseCode == 1) {
-                                setHasOptionsMenu(true);
-                                displayList();
-                                displayHotels();
+                            if (responseHotel == null) {
+                                Functions.snack(parentView, "Server time out");
 
-                                ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(getActivity(), "user_pref", 0);
-                                complexPreferences.putObject("hotels", responseHotel);
-                                complexPreferences.commit();
+                            } else {
+                                if (responseHotel.responseCode == 1) {
+                                    setHasOptionsMenu(true);
+                                    displayList();
+                                    displayHotels();
 
-                                ArrayList<String> cuisines = new ArrayList<String>();
-                                for (int i = 0; i < responseHotel.lstCuisine.size(); i++) {
-                                    cuisines.add(responseHotel.lstCuisine.get(i).CuisineName);
+                                    ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(getActivity(), "user_pref", 0);
+                                    complexPreferences.putObject("hotels", responseHotel);
+                                    complexPreferences.commit();
+
+                                    ArrayList<String> cuisines = new ArrayList<String>();
+                                    for (int i = 0; i < responseHotel.lstCuisine.size(); i++) {
+                                        cuisines.add(responseHotel.lstCuisine.get(i).CuisineName);
+                                    }
+                                    ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_multiple_choice, cuisines);
+                                    listCuisine.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+                                    listCuisine.setAdapter(adapter1);
+
+                                } else if (responseHotel.responseCode == 4) {
+                                    displayEmptyMessage(responseHotel.responseMessage);
+                                    setHasOptionsMenu(false);
                                 }
-                                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_multiple_choice, cuisines);
-                                listCuisine.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-                                listCuisine.setAdapter(adapter1);
-
-                            } else if (responseHotel.responseCode == 4) {
-                                displayEmptyMessage(responseHotel.responseMessage);
-                                setHasOptionsMenu(false);
                             }
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -15,8 +15,8 @@ public class AppConstants {
     public static int TYPE_3G = 4;
     public static int TYPE_4G = 5;
 
-    //    public static final String BASE_URL = "http://ws.foodfad.in/";
-    public static final String BASE_URL = "http://ws-srv-net.in.webmyne.com/applications/FoodBaazarWS_v2/";
+        public static final String BASE_URL = "http://ws.foodfad.in/";
+//    public static final String BASE_URL = "http://ws-srv-net.in.webmyne.com/applications/FoodBaazarWS_v2/";
     public static final String GET_CITY = "Hotel.svc/json/GetCityList/1";
     public static final String GET_HOTELS = "Hotel.svc/json/GetAllHotels/";
 
@@ -34,8 +34,8 @@ public class AppConstants {
     public static final String GIVE_RATING = "Hotel.svc/json/AddRatingReviewAndroid";
     public static final String CONTACT_US = "User.svc/json/AddContactEnquiryAndroid";
 
-    public static final String IMAGE_PREFIX = "http://ws-srv-net.in.webmyne.com/Applications/FoodBaazarV2/";
-//    public static final String IMAGE_PREFIX = "http://foodfad.in/";
+//    public static final String IMAGE_PREFIX = "http://ws-srv-net.in.webmyne.com/Applications/FoodBaazarV2/";
+    public static final String IMAGE_PREFIX = "http://foodfad.in/";
 
     public static final String GENERATE_PDF = IMAGE_PREFIX + "UserDetail/DownloadPDFandroid/";
 
@@ -51,4 +51,6 @@ public class AppConstants {
     public static final int CANCELLED = 3;
 
 
+    public static final int ProfileImageRes=1001;
+    public static int ProfileImageReq=1000;
 }

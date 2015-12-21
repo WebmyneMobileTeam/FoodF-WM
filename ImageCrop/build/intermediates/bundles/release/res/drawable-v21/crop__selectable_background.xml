@@ -4,4 +4,4 @@
         android:color="@color/crop__selector_pressed">
   <item android:drawable="@color/crop__button_bar" />
 </ripple>
-<!-- From: file:/D:/CURRENT_PROJECTS/FF-WM/ImageCrop/src/main/res/drawable-v21/crop__selectable_background.xml -->
+<!-- From: file:/D:/Current_Projects/FoodF-WM/ImageCrop/src/main/res/drawable-v21/crop__selectable_background.xml -->

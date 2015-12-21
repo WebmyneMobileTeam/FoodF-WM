@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alexzh.circleimageview.CircleImageView;
@@ -275,6 +269,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         HomeScreen homeScreen = ((HomeScreen) getActivity());
         homeScreen.setTitle("Login");
         homeScreen.setSubTitle("");
+        homeScreen.setLogoutVisibility();
 
         onResume();
     }
@@ -295,7 +290,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (currentUser.ProfilePic == null) {
 
         } else {
-            Glide.with(getActivity()).load(AppConstants.IMAGE_PREFIX + currentUser.ProfilePicFolderName + currentUser.ProfilePic).into(imgProfile);
+            Log.e("User_pic", AppConstants.IMAGE_PREFIX + currentUser.ProfilePicFolderName + currentUser.ProfilePic);
+            Glide.with(getActivity()).load(AppConstants.IMAGE_PREFIX + currentUser.ProfilePicFolderName + currentUser.ProfilePic).thumbnail(0.10f).into(imgProfile);
         }
 
         txtName.setText(currentUser.FirstName + " " + currentUser.LastName);

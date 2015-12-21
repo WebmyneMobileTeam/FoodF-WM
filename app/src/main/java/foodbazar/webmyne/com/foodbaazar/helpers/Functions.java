@@ -17,7 +17,6 @@ import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
 import android.util.Base64;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -148,7 +147,7 @@ public class Functions {
     public static String returnBas64Image(Bitmap thumbnail) {
         //complete code to save image on server
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.PNG, 90, baos); //bm is the bitmap object
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 75, baos); //bm is the bitmap object
         byte[] b = baos.toByteArray();
         String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
         return encodedImage;

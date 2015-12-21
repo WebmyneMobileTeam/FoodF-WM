@@ -333,6 +333,7 @@ public class ConfirmOrderActivity extends AppCompatActivity implements View.OnCl
 
     private void doPlaceOrder() {
         pd = ProgressDialog.show(ConfirmOrderActivity.this, "Loading..", "Please wait..", false);
+
         if (cbPreOrder.isChecked()) {
             dateTime = date + " " + time;
         } else {
@@ -355,7 +356,6 @@ public class ConfirmOrderActivity extends AppCompatActivity implements View.OnCl
             protected Void doInBackground(Void... params) {
 
                 try {
-
                     mainObect.put("CustomerFirstName", fname);
                     mainObect.put("CustomerLastName", lname);
                     mainObect.put("DeliveryArea", "Test");

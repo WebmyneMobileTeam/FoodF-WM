@@ -56,6 +56,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     File f;
     Bitmap bmpProfile = null;
     boolean change = false;
+    int userID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +69,14 @@ public class UpdateProfileActivity extends AppCompatActivity {
         complexPreferences = ComplexPreferences.getComplexPreferences(UpdateProfileActivity.this, "user_pref", 0);
         currentUser = new UserProfile();
         currentUser = complexPreferences.getObject("current-user", UserProfile.class);
+        userID = currentUser.UserId;
 
         displayDetails();
 
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //btnImage();
+                btnImage();
             }
         });
     }
@@ -258,8 +260,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void doUpdate() {
-
-
         pd = ProgressDialog.show(UpdateProfileActivity.this, "Loading.", "Please wait..", false);
 
         HashMap userObject = null;
@@ -288,7 +288,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
             userObject.put("State", 1);
             userObject.put("StateName", "Gujarat");
             userObject.put("UpdateBy", 3);
-            userObject.put("UserId", currentUser.UserId);
+            userObject.put("UserId", userID);
             userObject.put("Zip", Functions.toStr(edtZip));
         } catch (Exception e) {
             Log.e("error", e.getMessage());
@@ -312,7 +312,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
                             ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(UpdateProfileActivity.this, "user_pref", 0);
                             complexPreferences.putObject("current-user", currentUser);
                             complexPreferences.commit();
-
                             Functions.snack(parentView, "Update Successfull");
                             finish();
 
@@ -349,7 +348,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                         bmpProfile = Functions.getBitmap(profileURL);
                         if (bmpProfile != null) {
                             selectImage = Functions.returnBas64Image(bmpProfile);
-                            Log.e("selectImage", selectImage);
+                            //Log.e("selectImage", selectImage);
                         }
                         return null;
                     }
@@ -361,7 +360,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                     }
                 }.execute();
 
-                Glide.with(this).load(profileURL).placeholder(R.drawable.ic_account).into(imgProfile);
+                Glide.with(this).load(profileURL).thumbnail(0.10f).into(imgProfile);
             }
         } catch (Exception e) {
             e.printStackTrace();
