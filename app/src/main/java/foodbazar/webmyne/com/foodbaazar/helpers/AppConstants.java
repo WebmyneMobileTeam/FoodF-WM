@@ -6,7 +6,7 @@ package foodbazar.webmyne.com.foodbaazar.helpers;
 public class AppConstants {
 
     public static final boolean DEBUG = true;
-    public static final String DEBUG_TAG = "Food FAD";
+    public static final String DEBUG_TAG = "Food Fad";
 
     public static int TYPE_NOT_CONNECTED = 0;
     public static int TYPE_WIFI = 1;

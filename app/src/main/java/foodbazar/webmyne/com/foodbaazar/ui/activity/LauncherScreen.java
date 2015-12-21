@@ -15,7 +15,7 @@ public class LauncherScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher_screen);
 
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 

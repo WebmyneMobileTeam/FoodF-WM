@@ -216,7 +216,7 @@ public class StreetFoodActivity extends AppCompatActivity {
             holder.txtStreetFood.setText(galleryPojos.get(position).GalleryName);
 
             if (!galleryPojos.get(position).Image.equals("")) {
-                Glide.with(context).load(AppConstants.IMAGE_PREFIX + galleryPojos.get(position).ImagePath + galleryPojos.get(position).Image).thumbnail(0.10f).into(holder.imgStreetFood);
+                Glide.with(context).load(AppConstants.IMAGE_PREFIX + galleryPojos.get(position).ImagePath + galleryPojos.get(position).Image).into(holder.imgStreetFood);
             } else {
                 Glide.with(context).load(R.drawable.bg_image_small).into(holder.imgStreetFood);
             }
